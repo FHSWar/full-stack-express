@@ -10,5 +10,8 @@
     "pnpm-monorepo"
   ],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "shared": "workspace:shared"
+  }
 }
