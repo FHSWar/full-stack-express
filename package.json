@@ -2,19 +2,33 @@
   "name": "full-stack-express",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "engines": {
+    "node": ">=14.20.0"
+  },
   "scripts": {
+    "lint:client": "eslint --fix client",
+    "lint:server": "eslint --fix server",
+    "lint:shared": "eslint --fix shared",
     "prepare": "husky install"
   },
   "keywords": [
+    "eslint-config-standard-with-typescript",
+    "husky",
     "pnpm-monorepo"
   ],
-  "author": "",
+  "author": "fhswar",
   "license": "ISC",
   "dependencies": {
     "shared": "workspace:shared"
   },
   "devDependencies": {
-    "husky": "^8.0.1"
+    "@typescript-eslint/eslint-plugin": "^5.36.1",
+    "eslint": "^8.23.0",
+    "eslint-config-standard-with-typescript": "^22.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-n": "^15.2.5",
+    "eslint-plugin-promise": "^6.0.1",
+    "husky": "^8.0.1",
+    "typescript": "^4.8.2"
   }
 }
