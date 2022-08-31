@@ -4,9 +4,12 @@ importers:
 
   .:
     specifiers:
+      husky: ^8.0.1
       shared: workspace:shared
     dependencies:
       shared: link:shared
+    devDependencies:
+      husky: 8.0.1
 
   client:
     specifiers:
@@ -843,6 +846,12 @@ packages:
       statuses: 1.5.0
       toidentifier: 1.0.1
     dev: false
+
+  /husky/8.0.1:
+    resolution: {integrity: sha512-xs7/chUH/CKdOCs7Zy0Aev9e/dKOMZf3K1Az1nar3tzlv0jfqnYtu235bstsWTmXOR0EfINrPa97yy4Lz6RiKw==}
+    engines: {node: '>=14'}
+    hasBin: true
+    dev: true
 
   /iconv-lite/0.4.24:
     resolution: {integrity: sha512-v3MXnZAcvnywkTUEZomIActle7RXXeedOR31wwl7VlyoXO4Qi9arvSenNQWne1TcRwhCL1HwLI21bEqdpj8/rA==}
