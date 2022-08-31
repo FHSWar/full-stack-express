@@ -1,0 +1,22 @@
+# 没这个root true就会跟monorepo根目录的eslint狠狠冲突，好用的standard-with-typescript不适用于vue
+root: true
+env:
+    browser: true
+    es2021: true
+extends:
+    - eslint:recommended
+    - plugin:vue/vue3-recommended
+    - plugin:vue-scoped-css/vue3-recommended
+    - plugin:prettier/recommended
+overrides: []
+parser: vue-eslint-parser
+parserOptions:
+    ecmaVersion: latest
+    ecmaFeatures: { jsx: true }
+    parser: '@typescript-eslint/parser'
+    sourceType: module
+plugins:
+    - '@typescript-eslint'
+    - vue
+    - prettier
+rules: { prettier/prettier: error }

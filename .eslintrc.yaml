@@ -5,4 +5,6 @@ extends: standard-with-typescript
 overrides: []
 parserOptions:
   project: ./tsconfig.json
-rules: {}
+rules: {
+  '@typescript-eslint/triple-slash-reference': off
+}
