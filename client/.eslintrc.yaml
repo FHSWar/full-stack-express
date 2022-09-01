@@ -14,11 +14,13 @@ overrides: []
 parser: vue-eslint-parser
 parserOptions:
     ecmaVersion: latest
-    ecmaFeatures: { jsx: true }
+    ecmaFeatures:
+        jsx: true
     parser: '@typescript-eslint/parser'
     sourceType: module
 plugins:
     - '@typescript-eslint'
     - vue
     - prettier
-rules: { prettier/prettier: error }
+rules:
+    prettier/prettier: error

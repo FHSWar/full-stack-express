@@ -1,1 +1,3 @@
-export const sayHi = (): void => { console.log('hello from shared') }
+export const sayHi = (): void => {
+    console.log('hello from shared')
+}

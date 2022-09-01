@@ -1,10 +1,13 @@
 env:
-  browser: true
-  es2021: true
-extends: standard-with-typescript
+    browser: true
+    es2021: true
+extends:
+    - standard-with-typescript
+    - plugin:prettier/recommended
 overrides: []
 parserOptions:
-  project: ./tsconfig.json
-rules: {
-  '@typescript-eslint/triple-slash-reference': off
-}
+    project: ./tsconfig.json
+plugins:
+    - prettier
+rules:
+    '@typescript-eslint/triple-slash-reference': off
