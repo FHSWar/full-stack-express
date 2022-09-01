@@ -46,10 +46,5 @@
         "shared/**/*.{js,ts}": [
             "npm run lint:shared"
         ]
-    },
-    "husky": {
-        "hooks": {
-            "pre-commit": "lint-staged"
-        }
     }
 }
