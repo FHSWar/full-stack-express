@@ -5,6 +5,8 @@ extends:
     - standard-with-typescript
     - plugin:prettier/recommended
 overrides: []
+ignorePatterns:
+    - '**/dist/**/*.js'
 parserOptions:
     project: ./tsconfig.json
 plugins:
