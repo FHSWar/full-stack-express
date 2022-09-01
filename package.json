@@ -37,13 +37,19 @@
         "typescript": "^4.8.2"
     },
     "lint-staged": {
-        "*/**/*.{css,html,scss,ts,tsx,vue}": [
-            "npm run lint"
+        "client/**/*.{js,ts,vue}": [
+            "npm run lint:client"
+        ],
+        "server/**/*.{js,ts}": [
+            "npm run lint:server"
+        ],
+        "shared/**/*.{js,ts}": [
+            "npm run lint:shared"
         ]
     },
     "husky": {
         "hooks": {
-            "pre-commit": "lint-staged"       
-       }
+            "pre-commit": "lint-staged"
+        }
     }
 }
