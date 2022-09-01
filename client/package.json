@@ -9,6 +9,17 @@
     "lint": "eslint --fix --ext .js,.vue,.ts src",
     "preview": "vite preview"
   },
+  "keywords": [
+    "element-plus",
+    "eslint",
+    "prettier",
+    "sass",
+    "stylelint",
+    "tailwindcss",
+    "tsx",
+    "typescript",
+    "vue3"
+  ],
   "dependencies": {
     "vue": "^3.2.38"
   },

@@ -15,7 +15,8 @@
     "keywords": [
         "eslint-config-standard-with-typescript",
         "husky",
-        "pnpm-monorepo"
+        "pnpm-monorepo",
+        "prettier"
     ],
     "author": "fhswar",
     "license": "ISC",
