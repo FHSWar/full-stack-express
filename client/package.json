@@ -6,8 +6,9 @@
   "scripts": {
     "build": "vue-tsc --noEmit && vite build",
     "dev": "vite",
-    "lint": "eslint --fix --ext .js,.vue,.ts src",
-    "preview": "vite preview"
+    "lint": "eslint --fix --ext .cjs,.js,.ts,.tsx,.vue src",
+    "preview": "vite preview",
+    "stylelint": "stylelint \"src/**/*.{css,scss,sass,vue}\" --fix"
   },
   "keywords": [
     "element-plus",

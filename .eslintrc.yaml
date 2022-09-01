@@ -13,3 +13,4 @@ plugins:
     - prettier
 rules:
     '@typescript-eslint/triple-slash-reference': off
+    prettier/prettier: error
