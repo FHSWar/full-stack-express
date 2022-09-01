@@ -1,35 +1,49 @@
 {
-  "name": "full-stack-express",
-  "version": "1.0.0",
-  "description": "",
-  "engines": {
-    "node": ">=14.20.0"
-  },
-  "scripts": {
-    "lint:client": "eslint --fix client",
-    "lint:server": "eslint --fix server",
-    "lint:shared": "eslint --fix shared",
-    "prepare": "husky install"
-  },
-  "keywords": [
-    "eslint-config-standard-with-typescript",
-    "husky",
-    "pnpm-monorepo"
-  ],
-  "author": "fhswar",
-  "license": "ISC",
-  "dependencies": {
-    "shared": "workspace:shared"
-  },
-  "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^5.36.1",
-    "eslint": "^8.23.0",
-    "eslint-config-standard-with-typescript": "^22.0.0",
-    "eslint-plugin-import": "^2.26.0",
-    "eslint-plugin-n": "^15.2.5",
-    "eslint-plugin-prettier": "^4.2.1",
-    "eslint-plugin-promise": "^6.0.1",
-    "husky": "^8.0.1",
-    "typescript": "^4.8.2"
-  }
+    "name": "full-stack-express",
+    "version": "1.0.0",
+    "description": "",
+    "engines": {
+        "node": ">=14.20.0"
+    },
+    "scripts": {
+        "lint": "npm-run-all --parallel lint:*",
+        "lint:client": "cd client && npm run lint",
+        "lint:server": "eslint --fix server",
+        "lint:shared": "eslint --fix shared",
+        "prepare": "husky install"
+    },
+    "keywords": [
+        "eslint-config-standard-with-typescript",
+        "husky",
+        "pnpm-monorepo"
+    ],
+    "author": "fhswar",
+    "license": "ISC",
+    "dependencies": {
+        "shared": "workspace:shared"
+    },
+    "devDependencies": {
+        "@typescript-eslint/eslint-plugin": "^5.36.1",
+        "eslint": "^8.23.0",
+        "eslint-config-standard-with-typescript": "^22.0.0",
+        "eslint-plugin-import": "^2.26.0",
+        "eslint-plugin-n": "^15.2.5",
+        "eslint-plugin-prettier": "^4.2.1",
+        "eslint-plugin-promise": "^6.0.1",
+        "husky": "^8.0.1",
+        "lint-staged": "^13.0.3",
+        "npm-run-all": "^4.1.5",
+        "prettier": "^2.7.1",
+        "typescript": "^4.8.2"
+    },
+    "lint-staged": {
+        "**/*.{css,html,scss,ts,tsx,vue}": [
+            "npm run lint"
+        ]
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "lint-staged"       
+       }
+    }
 }
