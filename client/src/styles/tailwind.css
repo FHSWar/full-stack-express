@@ -1,0 +1,4 @@
+/* 只装tailwind是不行滴，按文档来：https://tailwindcss.com/docs/guides/vite */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

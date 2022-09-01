@@ -1,5 +1,4 @@
-import { dirname, resolve } from 'path'
-import { fileURLToPath } from 'url'
+import { resolve } from 'path'
 
 import { defineConfig } from 'vite'
 import legacy from '@vitejs/plugin-legacy'
@@ -10,8 +9,9 @@ export default defineConfig({
     resolve: {
         alias: {
             /* https://antfu.me/posts/isomorphic-dirname
-            dirname(fileURLToPath(import.meta.url))是esmodule下__dirname的替代品 */
-            '@': resolve(dirname(fileURLToPath(import.meta.url)), './src/')
+            - dirname(fileURLToPath(import.meta.url))是esmodule下__dirname的替代品
+            - 或者eslint开启node: true */
+            '@': resolve(__dirname, './src/')
         }
     },
     plugins: [

@@ -1,8 +1,10 @@
-# 没这个root true就会跟monorepo根目录的eslint狠狠冲突，好用的standard-with-typescript不适用于vue
+# 没这个root true就会跟monorepo根目录的eslint狠狠冲突，好用的standard-with-typescript不适用于.vue文件
 root: true
 env:
     browser: true
     es2021: true
+    # 为了让配置文件可以使用nodejs提供的变量和commonjs语法
+    node: true
 extends:
     - eslint:recommended
     - plugin:vue/vue3-recommended
