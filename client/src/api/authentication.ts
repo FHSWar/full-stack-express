@@ -1,3 +1,3 @@
-import { get } from '@/utils/axios/methods'
+import { post } from '@/utils/axios/methods'
 
-export const login = () => get('authentication/login')
+export const login = () => post('authentication/login')

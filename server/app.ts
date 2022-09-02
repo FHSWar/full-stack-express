@@ -3,7 +3,8 @@ import dotenv from 'dotenv'
 import express from 'express'
 
 import { sayHi } from 'shared'
-import router from 'controller/authentication'
+import router from '~controller/authentication'
+
 dotenv.config()
 
 const app = express()
