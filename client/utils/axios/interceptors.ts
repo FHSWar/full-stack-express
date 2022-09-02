@@ -1,7 +1,7 @@
 import {} from 'element-plus'
 import axios from './config'
 
-import type { ExtendedAxiosRequestConfig } from '@/types'
+import type { ExtendedAxiosRequestConfig } from '~types/index'
 
 const startLoading = () => {
 	setTimeout(() => {}, 1000)

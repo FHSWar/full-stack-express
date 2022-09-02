@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { login as loginApi } from '@/api/authentication'
+import { login as loginApi } from '~api/authentication'
 
 const login = async () => {
 	console.log('login', login)

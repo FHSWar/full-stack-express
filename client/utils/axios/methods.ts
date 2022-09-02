@@ -1,6 +1,6 @@
 import axios from './interceptors'
 
-import type { ExtendedAxiosRequestConfig } from '@/types'
+import type { ExtendedAxiosRequestConfig } from '~types/index'
 
 const defaultOption = {
 	useLoading: true,

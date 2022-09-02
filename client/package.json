@@ -5,10 +5,9 @@
   "type": "module",
   "scripts": {
     "build": "vue-tsc --noEmit && vite build",
-    "dev": "vite",
-    "lint": "eslint --fix --ext .cjs,.js,.ts,.tsx,.vue src",
-    "preview": "vite preview",
-    "stylelint": "stylelint \"src/**/*.{css,scss,sass,vue}\" --fix"
+    "dev": "vite --mode development",
+    "lint": "eslint --fix --ext .cjs,.js,.ts,.tsx,.vue .",
+    "preview": "vite preview"
   },
   "keywords": [
     "element-plus",

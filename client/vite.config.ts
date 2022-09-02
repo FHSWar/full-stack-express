@@ -11,7 +11,15 @@ export default defineConfig({
 			/* https://antfu.me/posts/isomorphic-dirname
             - dirname(fileURLToPath(import.meta.url))是esmodule下__dirname的替代品
             - 或者eslint开启node: true */
-			'@': resolve(__dirname, './src/')
+			'~api': resolve(__dirname, './api/'),
+			'~assets': resolve(__dirname, './assets/'),
+			'~components': resolve(__dirname, './components/'),
+			'~layout': resolve(__dirname, './layout/'),
+			'~public': resolve(__dirname, './public/'),
+			'~styles': resolve(__dirname, './styles/'),
+			'~types': resolve(__dirname, './types/'),
+			'~utils': resolve(__dirname, './utils/'),
+			'~views': resolve(__dirname, './views/')
 		}
 	},
 	plugins: [

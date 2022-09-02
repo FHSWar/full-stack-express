@@ -10,6 +10,9 @@ extends:
     - plugin:vue/vue3-recommended
     - plugin:vue-scoped-css/vue3-recommended
     - plugin:prettier/recommended
+ignorePatterns:
+    - /dist/*
+    - /node_modules/*
 overrides: []
 parser: vue-eslint-parser
 parserOptions:

@@ -21,7 +21,7 @@
     "author": "fhswar",
     "license": "ISC",
     "dependencies": {
-        "shared": "workspace:shared"
+        "shared": "workspace:^1.0.0"
     },
     "devDependencies": {
         "@typescript-eslint/eslint-plugin": "^5.36.1",

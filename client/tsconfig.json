@@ -14,9 +14,18 @@
     "skipLibCheck": true,
     "baseUrl": "./",
     "paths": {
-      "@/*": ["src/*"]
+      "~api/*": ["api/*"],
+      "~assets/*": ["assets/*"],
+			"~components/*": ["components/*"],
+			"~layout/*": ["layout/*"],
+			"~public/*": ["public/*"],
+			"~styles/*": ["styles/*"],
+			"~types/*": ["types/*"],
+			"~utils/*": ["utils/*"],
+			"~views/*": ["views/*"]
     }
   },
-  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"],
+  "include": ["**/*.ts", "**/*.d.ts", "**/*.tsx", "**/*.vue", "vite-env.d.ts"],
+  "exclude": ["node_modules", "dist"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
