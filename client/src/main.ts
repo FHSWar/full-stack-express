@@ -1,5 +1,12 @@
 import { createApp } from 'vue'
-import '@/styles/index.scss'
-import App from './App.vue'
+import ElementPlus from 'element-plus'
+import zhCn from 'element-plus/es/locale/lang/zh-cn'
 
-createApp(App).mount('#app')
+import '@/styles/index.scss' // 所有样式引入在@/styles/index.scss中处理
+import App from './app.vue' // 文件大小写错误不会崩，但是会失去热更新
+
+createApp(App)
+	.use(ElementPlus, {
+		locale: zhCn
+	})
+	.mount('#app')

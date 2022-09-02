@@ -4,5 +4,13 @@ module.exports = {
 	theme: {
 		extend: {}
 	},
-	plugins: []
+	plugins: [
+		({ addBase }) => {
+			addBase({
+				'.el-button': {
+					'background-color': 'var(--el-button-bg-color,var(--el-color-white))'
+				}
+			})
+		}
+	]
 }

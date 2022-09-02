@@ -1,0 +1,7 @@
+apps:
+- name: @fullstack/server
+  script: "./dist/app.js"
+  merge_logs: true
+  max_restarts: 20
+  instances: 4
+  node_args: "-r ts-node/register/transpile-only -r tsconfig-paths/register"

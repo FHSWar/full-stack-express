@@ -21,6 +21,7 @@ const noNeedCheckFileArr = [
 	'.gitignore',
 	'.prettierrc.yaml',
 	'.stylelintrc.yaml',
+	'pm2.yaml',
 	'README.md'
 ]
 const rootDir = process.cwd()

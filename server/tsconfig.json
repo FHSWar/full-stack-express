@@ -1,17 +1,20 @@
 {
-  "compilerOptions": {
-    "target": "ESNext",
-    "module": "commonjs",
-    "baseUrl": "./",
-    "paths": {
-      "@/*": ["src/*"],
-      "test/*": ["test/*"],
-      "shared": ["../shared"] // monorepo根目录的注册不能解决build后引入shared内容ts不被编译的问题
-    },
-    "outDir": "./dist",
-    "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true,
-    "strict": true,
-    "skipLibCheck": true
-  }
+	"compilerOptions": {
+		"target": "ESNext",
+		"module": "commonjs",
+		"baseUrl": "./",
+		"paths": {
+			"controller": ["controller/*"],
+			"shared": ["../shared"] // monorepo根目录的注册不能解决build后引入shared内容ts不被编译的问题
+		},
+		"outDir": "./dist",
+		"esModuleInterop": true,
+		"forceConsistentCasingInFileNames": true,
+		"strict": true,
+		"skipLibCheck": true
+	},
+	// 使诸如@controller之类的简写生效
+	"ts-node": {
+		"require": ["tsconfig-paths/register"]
+	}
 }
