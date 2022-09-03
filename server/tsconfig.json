@@ -9,6 +9,7 @@
 			"~model/*": ["model/*"],
 			"~public/*": ["public/*"],
 			"~test/*": ["test/*"],
+			"~util/*": ["util/*"],
 			"shared": ["../shared"] // monorepo根目录的注册不能解决build后引入shared内容ts不被编译的问题
 		},
 		"outDir": "./dist",
