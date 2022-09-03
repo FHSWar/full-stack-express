@@ -1,5 +1,5 @@
 import {} from 'element-plus'
-import axios from './config'
+import { axios } from './config'
 
 import type { ExtendedAxiosRequestConfig } from '~types/index'
 
