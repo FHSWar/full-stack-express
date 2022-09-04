@@ -14,8 +14,5 @@ const test = async () => {
 		<h1 class="text-red-300 text-3xl font-bold underline">测试CSS框架</h1>
 		<el-button type="primary" @click="login">Primary</el-button>
 		<el-button @click="test">Primary</el-button>
-		<a href="https://vitejs.dev" target="_blank">
-			<img src="/vite.svg" class="logo" alt="Vite logo" />
-		</a>
 	</div>
 </template>

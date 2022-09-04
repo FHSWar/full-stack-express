@@ -25,3 +25,5 @@
 - typescript 健壮代码的基本保障
 
 - sequelize默认选项还是[慎重考虑过](https://stackoverflow.com/questions/766809/whats-the-difference-between-utf8-general-ci-and-utf8-unicode-ci)的
+- 开源社区生态繁荣，开发进度才快，比如mysql单测就[可以借鉴](https://medium.com/nowports-tech/expressjs-and-sequelize-application-tested-with-mocha-chai-supertest-migrations-and-seeds-d306a8ee4add)
+- [根据NODE_ENV来切换.env文件](https://stackoverflow.com/questions/55406055/toggle-between-multiple-env-files-like-env-development-with-node-js)

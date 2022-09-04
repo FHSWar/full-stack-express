@@ -18,6 +18,8 @@ const noNeedCheckDirArr = [
 const noNeedCheckFileArr = [
 	'.editorconfig',
 	'.env.development',
+	'.env.local',
+	'.env.production',
 	'.eslintrc.yaml',
 	'.gitignore',
 	'.prettierrc.yaml',
