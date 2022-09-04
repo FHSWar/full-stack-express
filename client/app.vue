@@ -2,14 +2,10 @@
 import { login as loginApi, test as testApi } from '~api/authentication'
 
 const login = async () => {
-	console.log('login', login)
-	const res = await loginApi()
-	console.log('res', res)
+	await loginApi({ a: 1, b: 2, c: 3 })
 }
 const test = async () => {
-	console.log('login', login)
-	const res = await testApi()
-	console.log('res', res)
+	await testApi()
 }
 </script>
 

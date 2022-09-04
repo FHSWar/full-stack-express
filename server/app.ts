@@ -2,10 +2,17 @@ import cors from 'cors'
 import dotenv from 'dotenv'
 import express from 'express'
 
-import { mountController } from '~util'
+import { useController, useLogger, useSequelize } from '~util'
 
-dotenv.config()
+const launchApp = async (): Promise<void> => {
+	dotenv.config()
 
-const app = express().use(cors())
+	global.logger = useLogger(process.env.LOG_TARGET)
 
-void mountController(app)
+	const app = express().use(cors()).use(express.json())
+
+	await useSequelize()
+	await useController(app)
+}
+
+void launchApp()

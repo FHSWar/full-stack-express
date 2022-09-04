@@ -9,7 +9,7 @@ import type { Express } from 'express'
 const router = express.Router()
 
 // 挂载controller中的express路由们，根据目录自动加api prefix
-export const mountController = async (app: Express): Promise<void> => {
+export const useController = async (app: Express): Promise<void> => {
 	const controllerAbsolutePath = resolve('controller')
 
 	const filePathArr = getFileRecursively(controllerAbsolutePath)
@@ -29,6 +29,6 @@ export const mountController = async (app: Express): Promise<void> => {
 	const port = process.env.PORT !== undefined ? process.env.PORT : 80
 
 	app.use('/api', router).listen(port, () => {
-		console.log(`⚡️[server]: Server is running at http://localhost:${port}`)
+		logger.info(`⚡️[server]: Server is running at http://localhost:${port}`)
 	})
 }

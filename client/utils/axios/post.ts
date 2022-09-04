@@ -27,7 +27,6 @@ export const post = (
 			...options
 		}
 	}
-	console.log('post config', config)
 
 	return new Promise((resolve, reject) => {
 		axios(config as ExtendedAxiosRequestConfig)

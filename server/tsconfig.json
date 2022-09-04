@@ -9,6 +9,7 @@
 			"~model/*": ["model/*"],
 			"~public/*": ["public/*"],
 			"~test/*": ["test/*"],
+			"~types/*": ["types/*"],
 			"~util/*": ["util/*"],
 			"~util": ["util/index.ts"],
 			"shared": ["../shared"] // monorepo根目录的注册不能解决build后引入shared内容ts不被编译的问题
@@ -19,8 +20,11 @@
 		"strict": true,
 		"skipLibCheck": true
 	},
-	// 使诸如@controller之类的简写生效
 	"ts-node": {
+		// 使.d.ts文件生效
+		// https://stackoverflow.com/questions/51610583/ts-node-ignores-d-ts-files-while-tsc-successfully-compiles-the-project
+		"files": true,
+		// 使诸如~controller之类的简写生效
 		"require": ["tsconfig-paths/register"]
 	}
 }
