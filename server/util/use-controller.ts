@@ -15,7 +15,7 @@ export const useController = async (app: Express): Promise<void> => {
 	const filePathArr = getFileRecursively(controllerAbsolutePath)
 
 	for (const filePath of filePathArr) {
-		const result = await import(filePath)
+		const fileObj = await import(filePath)
 
 		const relativeFilePath = filePath.replace(controllerAbsolutePath, '')
 		const prefixByFolderPath = relativeFilePath.slice(
@@ -23,7 +23,7 @@ export const useController = async (app: Express): Promise<void> => {
 			relativeFilePath.lastIndexOf('/')
 		)
 
-		router.use(prefixByFolderPath, result.default)
+		router.use(prefixByFolderPath, fileObj.default)
 	}
 
 	const port = process.env.PORT !== undefined ? process.env.PORT : 80

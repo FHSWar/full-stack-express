@@ -1,4 +1,6 @@
-import { Sequelize } from 'sequelize'
+import { resolve } from 'path'
+
+import { Sequelize } from 'sequelize-typescript'
 
 export const useSequelize = async (): Promise<void> => {
 	// 不放到函数执行的时候再拿， 会是undefined
@@ -12,16 +14,24 @@ export const useSequelize = async (): Promise<void> => {
 		throw new Error('数据库连接缺少参数')
 	}
 
-	const sequelize = new Sequelize(DB_RBAC, DB_USERNAME, DB_PASSWORD, {
+	// role based access control
+	const rbac = new Sequelize({
+		database: DB_RBAC,
 		dialect: 'mysql',
 		host: DB_HOST,
 		logging: (msg) => logger.info(msg),
+		sync: { alter: true },
 		// logging: logger.debug.bind(logger),
-		timezone: '+08:00'
+		timezone: '+08:00',
+		username: DB_USERNAME,
+		password: DB_PASSWORD,
+		models: [resolve('model') + '/**/*.model.ts']
 	})
 
 	try {
-		await sequelize.authenticate()
+		await rbac.authenticate({ logging: false })
+		await rbac.sync({ logging: false })
+		global.rbac = rbac
 	} catch (error) {
 		logger.error('Unable to connect to the database:', error)
 	}
