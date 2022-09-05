@@ -1,27 +1,33 @@
 import cors from 'cors'
-
 import express from 'express'
-import swaggerUi from 'swagger-ui-express'
 
 import {
-	swaggerSpec,
-	useDotenv,
 	useController,
+	useDotenv,
+	useHttpServer,
 	useLogger,
-	useSequelize
+	useSequelize,
+	useSwaggerUI
 } from '~util'
 
 const launchApp = async (): Promise<void> => {
 	global.logger = useLogger(process.env.LOG_TARGET)
 
-	const app = express()
-		.use(cors())
-		.use(express.json())
-		.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec))
+	const app = express().use(cors()).use(express.json())
 
 	await useSequelize()
 	await useController(app)
+	useHttpServer(app)
+	useSwaggerUI(app)
+}
+
+const stopApp = async (): Promise<void> => {
+	server.close()
+	await rbac.close()
 }
 
 useDotenv()
-void launchApp()
+
+if (process.env.NODE_ENV !== 'test') void launchApp()
+
+export { launchApp, stopApp }

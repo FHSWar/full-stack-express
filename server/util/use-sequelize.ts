@@ -11,26 +11,27 @@ export const useSequelize = async (): Promise<void> => {
 		DB_USERNAME === undefined ||
 		DB_RBAC === undefined
 	) {
-		throw new Error('数据库连接缺少参数')
+		throw new Error('数据库连接缺少参数❗️')
 	}
 
-	// role based access control
+	// role based access control，鉴权专用库
 	const rbac = new Sequelize({
 		database: DB_RBAC,
-		dialect: 'mysql',
+		username: DB_USERNAME,
+		password: DB_PASSWORD,
 		host: DB_HOST,
+		dialect: 'mysql',
 		logging: (msg) => logger.info(msg),
 		sync: { alter: true },
 		// logging: logger.debug.bind(logger),
 		timezone: '+08:00',
-		username: DB_USERNAME,
-		password: DB_PASSWORD,
 		models: [resolve('model') + '/**/*.model.ts']
 	})
 
 	try {
 		await rbac.authenticate({ logging: false })
 		await rbac.sync({ logging: false })
+
 		global.rbac = rbac
 	} catch (error) {
 		logger.error('Unable to connect to the database:', error)

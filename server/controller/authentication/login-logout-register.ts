@@ -6,9 +6,8 @@ const subRouter = express.Router()
 
 // eslint-disable-next-line @typescript-eslint/no-misused-promises
 subRouter.post('/login', async (req, res) => {
-	const jane = Role.build({ name: 'FHS', description: 'Working hard' })
-	await jane.save()
-	// console.log('req', req.body, '\n', req.baseUrl, req.url)
+	const fhs = Role.build({ name: 'FHS', description: 'Working hard' })
+	await fhs.save()
 	res.send('login not done')
 })
 

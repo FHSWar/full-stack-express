@@ -1,6 +1,9 @@
 import { resolve } from 'path'
 
 import swaggerJSDoc from 'swagger-jsdoc'
+import swaggerUi from 'swagger-ui-express'
+
+import type { Express } from 'express'
 
 const swaggerDefinition = {
 	openapi: '3.0.0',
@@ -16,4 +19,8 @@ const options = {
 	apis: [resolve('public/doc/*.ts')]
 }
 
-export const swaggerSpec = swaggerJSDoc(options)
+export const useSwaggerUI = (app: Express): void => {
+	const swaggerSpec = swaggerJSDoc(options)
+
+	app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec))
+}

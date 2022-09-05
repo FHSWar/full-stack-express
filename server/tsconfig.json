@@ -4,7 +4,6 @@
 		"module": "commonjs",
 		"baseUrl": "./",
 		"paths": {
-			"~config/*": ["config/*"],
 			"~controller/*": ["controller/*"],
 			"~model/*": ["model/*"],
 			"~public/*": ["public/*"],

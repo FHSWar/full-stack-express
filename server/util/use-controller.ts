@@ -26,9 +26,5 @@ export const useController = async (app: Express): Promise<void> => {
 		router.use(prefixByFolderPath, fileObj.default)
 	}
 
-	const port = process.env.PORT !== undefined ? process.env.PORT : 80
-
-	app.use('/api', router).listen(port, () => {
-		logger.info(`⚡️[server]: Server is running at http://localhost:${port}`)
-	})
+	app.use('/api', router)
 }
