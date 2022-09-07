@@ -35,7 +35,7 @@ const fileConfigFactory = (
 })
 
 // debug以上的才写到日志中
-export const useLogger = (targetFolder: string | undefined): Logger => {
+export const useWinston = (targetFolder: string | undefined): Logger => {
 	if (targetFolder === undefined) throw new Error('日志文件路径不能为空❗️')
 
 	const date = dayjs().format('YYYY-MM-DD')

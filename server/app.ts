@@ -5,15 +5,22 @@ import {
 	useController,
 	useDotenv,
 	useHttpServer,
-	useLogger,
 	useSequelize,
-	useSwaggerUI
+	useSwaggerUI,
+	useWinston
 } from '~util'
 
 const launchApp = async (): Promise<void> => {
-	global.logger = useLogger(process.env.LOG_TARGET)
+	const { LOG_PATH, STATIC_PATH } = process.env
 
-	const app = express().use(cors()).use(express.json())
+	if (STATIC_PATH === undefined) throw new Error('静态资源路径不能为空❗️')
+
+	global.logger = useWinston(LOG_PATH)
+
+	const app = express()
+		.use(cors())
+		.use(express.json())
+		.use(express.static(STATIC_PATH))
 
 	await useSequelize()
 	await useController(app)
