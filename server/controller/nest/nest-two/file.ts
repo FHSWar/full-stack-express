@@ -3,7 +3,7 @@ import express from 'express'
 const subRouter = express.Router()
 
 subRouter.post('/sayHi', (req, res) => {
-	res.send('这个feature帅死了')
+	toClient(res, '这个feature超级帅')
 })
 
 export default subRouter

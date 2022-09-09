@@ -7,6 +7,7 @@ import {
 	useHttpServer,
 	useSequelize,
 	useSwaggerUI,
+	useToClient,
 	useWinston
 } from '~util'
 
@@ -22,6 +23,7 @@ const launchApp = async (): Promise<void> => {
 		.use(express.json())
 		.use(express.static(STATIC_PATH))
 
+	useToClient()
 	await useSequelize()
 	await useController(app)
 	useHttpServer(app)
