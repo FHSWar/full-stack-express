@@ -1,5 +1,6 @@
 import cors from 'cors'
 import express from 'express'
+import responseTime from 'response-time'
 
 import {
 	useController,
@@ -20,6 +21,7 @@ const launchApp = async (): Promise<void> => {
 
 	const app = express()
 		.use(cors())
+		.use(responseTime())
 		.use(express.json())
 		.use(express.static(STATIC_PATH))
 

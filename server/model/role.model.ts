@@ -23,8 +23,10 @@ interface IRoleCreationAttributes
 	extends Optional<IRole, 'id' | 'createdAt' | 'updatedAt' | 'deleteAt'> {}
 
 @Table({
-	tableName: 'roles',
-	paranoid: true // 自动生成'deleteAt'
+	freezeTableName: true,
+	tableName: 'role',
+	// paranoid: true, // 自动生成'deleteAt'
+	underscored: true
 })
 class Role extends Model<IRole, IRoleCreationAttributes> {
 	@AllowNull(false)
