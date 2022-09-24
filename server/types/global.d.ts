@@ -1,4 +1,6 @@
 /* eslint-disable no-var */
+import { createClient } from 'redis'
+
 import type { Server } from 'http'
 
 import type { Express } from 'express'
@@ -11,6 +13,7 @@ declare global {
 	var app: Express
 	var logger: Logger
 	var rbac: Sequelize
+	var redisSession: ReturnType<typeof createClient>
 	var server: Server
 	var toClient: ToClient
 }
