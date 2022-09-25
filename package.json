@@ -41,10 +41,10 @@
         "client/**/*.{js,ts,vue}": [
             "npm run lint:client"
         ],
-        "server/**/*.{js,ts}": [
+        "server/**/*.{ts}": [
             "npm run lint:server"
         ],
-        "shared/**/*.{js,ts}": [
+        "shared/**/*.{ts}": [
             "npm run lint:shared"
         ]
     }
