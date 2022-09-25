@@ -12,7 +12,7 @@ export const validateCookie = (): RequestHandler => {
 		if (apiWhiteList.includes(req.url)) return next()
 
 		// sess:LVPti7kmLdNTh37bul9uQcvRqF-IZgH-
-		if (req.cookies['connect.sid'] === undefined)
+		if (req.cookies.sid === undefined)
 			return toClient(res, '无权限，请登陆', 403)
 
 		// TODO：非白名单校验session内容正确性

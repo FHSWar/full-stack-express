@@ -55,6 +55,6 @@ export const useWinston = (): void => {
 	})
 
 	// 结合console.time简单测试知useWinston函数耗时在m1 mac上约为5ms
-	global.launchTime = logger.startTimer()
+	global.launchTimer = logger.startTimer()
 	global.logger = logger
 }

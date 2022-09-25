@@ -8,6 +8,7 @@ import {
 	useCookie,
 	useDotenv,
 	useHttpServer,
+	useRedis,
 	useSequelize,
 	useStaticServer,
 	useSwaggerUI,
@@ -18,6 +19,7 @@ import {
 const launchApp = async (): Promise<void> => {
 	useDotenv() // 读入环境变量
 	useWinston() // 全局挂载日志对象
+	useRedis() // 全局挂载ioredis实例
 	useToClient() // 全局挂载响应方法，统一响应格式
 
 	const app = express()
@@ -34,12 +36,12 @@ const launchApp = async (): Promise<void> => {
 	await useSequelize() // mysql的ORM框架
 	await useController(app) // 动态注册controller
 
-	launchTime.done({ level: 'debug', message: '项目启动耗时' })
+	launchTimer.done({ level: 'debug', message: '项目启动耗时' })
 }
 
 const stopApp = async (): Promise<void> => {
 	server.close()
-	await redisSession.disconnect()
+	redis.disconnect()
 	await rbac.close()
 }
 
