@@ -15,7 +15,7 @@ export const validateCookie = (): RequestHandler => {
 		if (req.cookies.sid === undefined)
 			return toClient(res, '无权限，请登陆', 403)
 
-		// TODO：非白名单校验session内容正确性
+		// TODO: 非白名单校验session内容正确性
 		req.session.regenerate((err) => {
 			err === null ? next() : toClient(res, '刷新cookie出错', 403)
 		})
