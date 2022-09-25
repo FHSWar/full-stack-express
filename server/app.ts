@@ -9,32 +9,32 @@ import {
 	useDotenv,
 	useHttpServer,
 	useSequelize,
+	useStaticServer,
 	useSwaggerUI,
 	useToClient,
 	useWinston
 } from '~util'
 
 const launchApp = async (): Promise<void> => {
-	const { LOG_PATH, STATIC_PATH } = process.env
-
-	if (STATIC_PATH === undefined) throw new Error('静态资源路径不能为空❗️')
-
-	global.logger = useWinston(LOG_PATH)
+	useDotenv() // 读入环境变量
+	useWinston() // 全局挂载日志对象
+	useToClient() // 全局挂载响应方法，统一响应格式
 
 	const app = express()
 		.use(cors({ credentials: true, origin: true })) // 使后端具有跨域写入cookie的能力
 		.use(cookieParser()) // 使express请求中能拿到cookie对象
 		.use(responseTime()) // 给相应头里写入响应时间
 		.use(express.json()) // 解析json格式的请求
-		.use(express.static(STATIC_PATH)) // 静态资源服务
 
-	useToClient() // 统一响应格式
 	useCookie(app) // 使用cookie
+	useStaticServer(app) // 静态资源服务
 	useHttpServer(app) // 包一层http server，使可以停止，方便单测
 	useSwaggerUI(app) // api文档
 
 	await useSequelize() // mysql的ORM框架
 	await useController(app) // 动态注册controller
+
+	launchTime.done({ level: 'debug', message: '项目启动耗时' })
 }
 
 const stopApp = async (): Promise<void> => {
@@ -42,8 +42,6 @@ const stopApp = async (): Promise<void> => {
 	await redisSession.disconnect()
 	await rbac.close()
 }
-
-useDotenv() // 读入环境变量
 
 if (process.env.NODE_ENV !== 'test') void launchApp() // 非单测时启动项目
 

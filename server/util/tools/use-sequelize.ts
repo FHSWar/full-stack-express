@@ -5,7 +5,6 @@ import { Sequelize } from 'sequelize-typescript'
 export const useSequelize = async (): Promise<void> => {
 	// 不放到函数执行的时候再拿， 会是undefined
 	const { DB_HOST, DB_USERNAME, DB_PASSWORD, DB_RBAC } = process.env
-
 	if (
 		DB_HOST === undefined ||
 		DB_USERNAME === undefined ||

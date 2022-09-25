@@ -6,6 +6,11 @@ import type { Express } from 'express'
 
 // https://www.npmjs.com/package/redis
 export const useCookie = (app: Express): void => {
+	const { SESSION_SECRET } = process.env
+	if (SESSION_SECRET === undefined) {
+		throw new Error('必须指定密钥串❗️')
+	}
+
 	global.redisSession = createClient({ legacyMode: true })
 
 	redisSession.connect().catch(console.error)
@@ -17,7 +22,7 @@ export const useCookie = (app: Express): void => {
 		session({
 			store: new RedisStore({ client: redisSession as any }),
 			saveUninitialized: false,
-			secret: 'keyboard cat',
+			secret: SESSION_SECRET,
 			resave: false
 		})
 	)

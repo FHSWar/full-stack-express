@@ -4,8 +4,6 @@ import dayjs from 'dayjs'
 
 import { createLogger, format, transports } from 'winston'
 
-import type { Logger } from 'winston'
-
 const { colorize, combine, json, simple, timestamp } = format
 
 const LEVEL = Symbol.for('level')
@@ -35,11 +33,12 @@ const fileConfigFactory = (
 })
 
 // debug以上的才写到日志中
-export const useWinston = (targetFolder: string | undefined): Logger => {
-	if (targetFolder === undefined) throw new Error('日志文件路径不能为空❗️')
+export const useWinston = (): void => {
+	const { LOG_PATH } = process.env
+	if (LOG_PATH === undefined) throw new Error('日志文件路径不能为空❗️')
 
 	const date = dayjs().format('YYYY-MM-DD')
-	const logPath = join(targetFolder, date)
+	const logPath = join(LOG_PATH, date)
 
 	const logger = createLogger({
 		// defaultMeta: { service: 'server' },
@@ -54,5 +53,8 @@ export const useWinston = (targetFolder: string | undefined): Logger => {
 			new transports.Console({ format: combine(colorize(), simple()) })
 		]
 	})
-	return logger
+
+	// 结合console.time简单测试知useWinston函数耗时在m1 mac上约为5ms
+	global.launchTime = logger.startTimer()
+	global.logger = logger
 }
