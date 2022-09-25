@@ -24,6 +24,7 @@
     "dotenv": "^16.0.2",
     "express": "5.0.0-beta.1",
     "express-session": "^1.17.3",
+    "joi": "^17.6.1",
     "lodash": "^4.17.21",
     "mysql2": "^2.3.3",
     "redis": "^4.3.1",

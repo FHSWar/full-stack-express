@@ -1,3 +1,5 @@
+export * from './middleware/validate-cookie'
+
 export * from './tools/use-controller'
 export * from './tools/use-cookie'
 export * from './tools/use-dotenv'
