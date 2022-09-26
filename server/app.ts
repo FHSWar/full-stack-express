@@ -5,11 +5,11 @@ import responseTime from 'response-time'
 
 import {
 	useController,
-	useCookie,
 	useDotenv,
 	useHttpServer,
 	useRedis,
 	useSequelize,
+	useSessionRedis,
 	useStaticServer,
 	useSwaggerUI,
 	useToClient,
@@ -28,7 +28,7 @@ const launchApp = async (): Promise<void> => {
 		.use(responseTime()) // 给相应头里写入响应时间
 		.use(express.json()) // 解析json格式的请求
 
-	useCookie(app) // 使用cookie
+	useSessionRedis(app) // 使用cookie
 	useStaticServer(app) // 静态资源服务
 	useHttpServer(app) // 包一层http server，使可以停止，方便单测
 	useSwaggerUI(app) // api文档

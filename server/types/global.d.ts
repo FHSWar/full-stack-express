@@ -2,9 +2,9 @@
 import type { Server } from 'http'
 
 import type { Express } from 'express'
-import type { Logger, Profiler } from 'winston'
 import type { Redis } from 'ioredis'
 import type { Sequelize } from 'sequelize'
+import type { Logger, Profiler } from 'winston'
 
 import type { ToClient } from '~util'
 
