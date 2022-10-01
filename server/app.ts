@@ -27,7 +27,7 @@ const launchApp = async (): Promise<void> => {
 	const app = express()
 		.use(cors({ credentials: true, origin: true })) // 使后端具有跨域写入cookie的能力
 		.use(cookieParser()) // 使express请求中能拿到cookie对象
-		.use(responseTime()) // 给相应头里写入响应时间
+		.use(responseTime()) // 给响应头里写入响应时间
 		.use(express.json()) // 解析json格式的请求
 
 	useSessionRedis(app) // 使用cookie
