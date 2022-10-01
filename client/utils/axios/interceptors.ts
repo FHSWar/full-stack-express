@@ -3,19 +3,19 @@ import { axios } from './config'
 
 import type { ExtendedAxiosRequestConfig } from '~types/index'
 
-const startLoading = () => {
-	setTimeout(() => {}, 1000)
-}
+// const startLoading = () => {
+// 	setTimeout(() => {}, 1000)
+// }
 
 axios.interceptors.request.use(
 	(config: ExtendedAxiosRequestConfig) => {
 		// if (timestamp && Number(timestamp) > Date.now()) useLogout()
-		const { useLoading } = config
+		// const { useLoading } = config
 		config.headers = {
 			...config.headers
 		}
 
-		if (useLoading) startLoading()
+		// if (useLoading) startLoading()
 
 		return config
 	},

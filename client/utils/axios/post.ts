@@ -1,6 +1,7 @@
 import { defaultOption } from './config'
 import axios from './interceptors'
 
+import type { AxiosRequestConfig } from 'axios'
 import type { ExtendedAxiosRequestConfig } from '~types/index'
 
 export const post = (
@@ -8,7 +9,8 @@ export const post = (
 	params = {},
 	options: ExtendedAxiosRequestConfig = {}
 ) => {
-	let config: any
+	let config: AxiosRequestConfig
+
 	if (options.useFormData) {
 		config = {
 			method: 'post',
