@@ -1,14 +1,14 @@
 import { defaultOption } from './config'
-import axios from './interceptors'
+import { query } from './query'
 
-import type { AxiosRequestConfig } from 'axios'
-import type { ExtendedAxiosRequestConfig } from '~types/index'
+import type { AxiosRequestConfig, AxiosResponse } from 'axios'
 
-export const post = (
-	url = '',
-	params = {},
-	options: ExtendedAxiosRequestConfig = {}
-) => {
+export const post = async <T, R = AxiosResponse<T>>(
+	url: string,
+	params: T,
+	options: AxiosRequestConfig = defaultOption
+): Promise<R> => {
+	options
 	let config: AxiosRequestConfig
 
 	if (options.useFormData) {
@@ -30,14 +30,5 @@ export const post = (
 		}
 	}
 
-	return new Promise((resolve, reject) => {
-		axios(config as ExtendedAxiosRequestConfig)
-			.then((res) => {
-				resolve(res)
-			})
-			.catch((error) => {
-				if (options.handleError) return reject(error)
-				console.warn('silent post error', error.toString())
-			})
-	})
+	return query<R>(config, options.handleError)
 }

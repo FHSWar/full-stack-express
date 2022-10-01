@@ -1,9 +1,12 @@
 import type { AxiosRequestConfig } from 'axios'
 
-export interface ExtendedAxiosRequestConfig extends AxiosRequestConfig {
-	useLoading?: boolean
-	useMessage?: boolean
-	handleError?: boolean
-	useFormData?: boolean
+// https://stackoverflow.com/questions/58777924/axios-typescript-customize-axiosrequestconfig
+declare module 'axios' {
+	export interface AxiosRequestConfig {
+		useLoading: boolean
+		useMessage: boolean
+		handleError: boolean
+		useFormData: boolean
+	}
 }
 

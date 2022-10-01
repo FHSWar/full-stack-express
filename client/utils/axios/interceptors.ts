@@ -1,14 +1,14 @@
 import {} from 'element-plus'
 import { axios } from './config'
 
-import type { ExtendedAxiosRequestConfig } from '~types/index'
+import type { AxiosError } from 'axios'
 
 // const startLoading = () => {
 // 	setTimeout(() => {}, 1000)
 // }
 
 axios.interceptors.request.use(
-	(config: ExtendedAxiosRequestConfig) => {
+	(config) => {
 		// if (timestamp && Number(timestamp) > Date.now()) useLogout()
 		// const { useLoading } = config
 		config.headers = {
@@ -20,13 +20,13 @@ axios.interceptors.request.use(
 		return config
 	},
 	(error) => {
-		console.log(error)
+		console.log('interceptors request error:', error)
 	}
 )
 
 axios.interceptors.response.use(
 	(response) => {
-		const { config, data } = response
+		const { config } = response
 
 		console.log(
 			'axios.interceptors.response.config',
@@ -35,9 +35,15 @@ axios.interceptors.response.use(
 			response
 		)
 
-		return data
+		return response
 	},
 	(error) => {
+		// 不是AxiosError就离谱了
+		if (!axios.isAxiosError(error)) {
+			console.log('interceptors unexpected error:', error)
+			throw error
+		}
+
 		const { config, response } = error
 
 		console.log(

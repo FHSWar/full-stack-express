@@ -10,10 +10,13 @@ extends:
     - '@vue/eslint-config-typescript/recommended'
     - plugin:vue/vue3-recommended
     - plugin:vue-scoped-css/vue3-recommended
+    - plugin:@typescript-eslint/recommended
+    - plugin:@typescript-eslint/recommended-requiring-type-checking
     - plugin:prettier/recommended
 ignorePatterns:
     - /dist/*
     - /node_modules/*
+    - '*.config.cjs'
     - '*.d.ts'
 overrides: []
 parser: vue-eslint-parser
@@ -23,9 +26,13 @@ parserOptions:
         jsx: true
     parser: '@typescript-eslint/parser'
     sourceType: module
+    project:
+        - './tsconfig.json'
 plugins:
     - '@typescript-eslint'
     - prettier
     - vue
 rules:
     prettier/prettier: error
+    '@typescript-eslint/no-unsafe-call': 'off'
+    '@typescript-eslint/no-unsafe-return': 'off'

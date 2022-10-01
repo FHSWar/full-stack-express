@@ -1,13 +1,13 @@
 import { defaultOption } from './config'
-import axios from './interceptors'
+import { query } from './query'
 
-import type { ExtendedAxiosRequestConfig } from '~types/index'
+import type { AxiosRequestConfig, AxiosResponse } from 'axios'
 
-export const remove = (
-	url = '',
-	params = {},
-	options: ExtendedAxiosRequestConfig = {}
-) => {
+export const remove = <T, R = AxiosResponse<T>>(
+	url: string,
+	params: T,
+	options: AxiosRequestConfig = defaultOption
+): Promise<R> => {
 	const config = {
 		method: 'delete',
 		url,
@@ -15,14 +15,6 @@ export const remove = (
 		...defaultOption,
 		...options
 	}
-	return new Promise((resolve, reject) => {
-		axios(config as ExtendedAxiosRequestConfig)
-			.then((res) => {
-				resolve(res)
-			})
-			.catch((error) => {
-				if (options.handleError) return reject(error)
-				console.warn('silent get error', error.toString())
-			})
-	})
+
+	return query(config, options.handleError)
 }

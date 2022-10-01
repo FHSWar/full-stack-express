@@ -7,16 +7,16 @@ import {
 } from '~api/authentication'
 
 const login = async () => {
-	await loginApi({})
+	await loginApi(null)
 }
 const logout = async () => {
-	await logoutApi({})
+	await logoutApi(null)
 }
 const register = async () => {
-	await registerApi({})
+	await registerApi(null)
 }
 const test = async () => {
-	await testApi()
+	await testApi(null)
 }
 </script>
 
