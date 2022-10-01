@@ -8,6 +8,7 @@ import {
 	useDotenv,
 	useHttpServer,
 	useRedis,
+	useScheduler,
 	useSequelize,
 	useSessionRedis,
 	useStaticServer,
@@ -19,6 +20,7 @@ import {
 const launchApp = async (): Promise<void> => {
 	useDotenv() // 读入环境变量
 	useWinston() // 全局挂载日志对象
+	useScheduler() // 全局挂载定时任务
 	useRedis() // 全局挂载ioredis实例
 	useToClient() // 全局挂载响应方法，统一响应格式
 
@@ -40,11 +42,12 @@ const launchApp = async (): Promise<void> => {
 }
 
 const stopApp = async (): Promise<void> => {
+	scheduler.stopScheduler()
 	server.close()
 	redis.disconnect()
 	await rbac.close()
 }
 
-if (process.env.NODE_ENV !== 'test') void launchApp() // 非单测时启动项目
+if (process.env.NODE_ENV !== 'testing') void launchApp() // 非单测时启动项目
 
 export { launchApp, stopApp } // 暴露给单测手动调用

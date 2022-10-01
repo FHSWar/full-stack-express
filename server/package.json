@@ -7,7 +7,7 @@
     "build": "npx tsc",
     "dev": "NODE_ENV=local nodemon -q",
     "prd": "tsc && NODE_ENV=production pm2 start pm2.yaml",
-    "test": "NODE_ENV=test jest --runInBand"
+    "test": "NODE_ENV=testing jest --runInBand --detectOpenHandles"
   },
   "keywords": [
     "express",
@@ -26,6 +26,7 @@
     "joi": "^17.6.1",
     "lodash": "^4.17.21",
     "mysql2": "^2.3.3",
+    "node-schedule": "^2.1.0",
     "reflect-metadata": "^0.1.13",
     "response-time": "^2.3.2",
     "sequelize": "^6.21.6",
@@ -43,6 +44,7 @@
     "@types/jest": "^29.0.0",
     "@types/lodash": "^4.14.184",
     "@types/node": "^18.7.16",
+    "@types/node-schedule": "^2.1.0",
     "@types/response-time": "^2.3.5",
     "@types/supertest": "^2.0.12",
     "@types/swagger-jsdoc": "^6.0.1",

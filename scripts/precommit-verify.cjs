@@ -20,6 +20,7 @@ const noNeedCheckFileArr = [
 	'.env.development',
 	'.env.local',
 	'.env.production',
+	'.env.testing',
 	'.eslintrc.yaml',
 	'.gitignore',
 	'.prettierrc.yaml',

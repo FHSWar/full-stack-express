@@ -1,6 +1,7 @@
 export * from './middleware/validate-cookie'
 
 export * from './tools/use-controller'
+export * from './tools/use-scheduler'
 export * from './tools/use-dotenv'
 export * from './tools/use-http-server'
 export * from './tools/use-redis'

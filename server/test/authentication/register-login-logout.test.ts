@@ -9,6 +9,7 @@ beforeAll(async () => {
 	await rbac.drop({ logging: false })
 	await rbac.sync({ logging: false })
 })
+
 afterAll(async () => {
 	await stopApp()
 })
