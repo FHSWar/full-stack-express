@@ -1,8 +1,6 @@
 import {} from 'element-plus'
 import { axios } from './config'
 
-import type { AxiosError } from 'axios'
-
 // const startLoading = () => {
 // 	setTimeout(() => {}, 1000)
 // }
@@ -11,6 +9,7 @@ axios.interceptors.request.use(
 	(config) => {
 		// if (timestamp && Number(timestamp) > Date.now()) useLogout()
 		// const { useLoading } = config
+		// eslint-disable-next-line no-param-reassign
 		config.headers = {
 			...config.headers
 		}

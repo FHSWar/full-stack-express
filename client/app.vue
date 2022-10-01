@@ -7,7 +7,8 @@ import {
 } from '~api/authentication'
 
 const login = async () => {
-	await loginApi(null)
+	const a = await loginApi(null)
+	console.log('a', a)
 }
 const logout = async () => {
 	await logoutApi(null)

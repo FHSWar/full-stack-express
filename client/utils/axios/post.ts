@@ -8,7 +8,6 @@ export const post = async <T, R = AxiosResponse<T>>(
 	params: T,
 	options: AxiosRequestConfig = defaultOption
 ): Promise<R> => {
-	options
 	let config: AxiosRequestConfig
 
 	if (options.useFormData) {
@@ -30,5 +29,5 @@ export const post = async <T, R = AxiosResponse<T>>(
 		}
 	}
 
-	return query<R>(config, options.handleError)
+	return query<R>(config, config.handleError)
 }

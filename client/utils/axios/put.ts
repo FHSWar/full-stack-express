@@ -16,5 +16,5 @@ export const put = <T, R = AxiosResponse<T>>(
 		...options
 	}
 
-	return query(config, options.handleError)
+	return query(config, config.handleError)
 }

@@ -45,9 +45,10 @@ importers:
       autoprefixer: ^10.4.12
       axios: ^0.27.2
       element-plus: ^2.2.17
-      eslint: ^8.24.0
+      eslint: ^8.2.0
+      eslint-config-airbnb-base: 15.0.0
       eslint-config-prettier: ^8.5.0
-      eslint-plugin-import: ^2.26.0
+      eslint-plugin-import: ^2.25.2
       eslint-plugin-prettier: ^4.2.1
       eslint-plugin-vue: ^9.5.1
       eslint-plugin-vue-scoped-css: ^2.2.0
@@ -80,6 +81,7 @@ importers:
       '@vue/eslint-config-typescript': 11.0.2_xgc4xirg4ejg2tgchx2nhou42q
       autoprefixer: 10.4.12_postcss@8.4.17
       eslint: 8.24.0
+      eslint-config-airbnb-base: 15.0.0_dg2pe6kqkrddxbf2funb723kue
       eslint-config-prettier: 8.5.0_eslint@8.24.0
       eslint-plugin-import: 2.26.0_gofx6msuqd4luqedfouzks2s4u
       eslint-plugin-prettier: 4.2.1_cfn5x6ujhhgzv3423d6k7r2zzm
@@ -2646,6 +2648,10 @@ packages:
   /concat-map/0.0.1:
     resolution: {integrity: sha1-2Klr13/Wjfd5OnMDajug1UBdR3s=}
 
+  /confusing-browser-globals/1.0.11:
+    resolution: {integrity: sha512-JsPKdmh8ZkmnHxDk55FZ1TqVLvEQTvoByJZRN9jzI0UjxK/QgAmsphz7PGtqgPieQZ/CQcHWXCR7ATDNhGe+YA==}
+    dev: true
+
   /connect-redis/6.1.3:
     resolution: {integrity: sha512-aaNluLlAn/3JPxRwdzw7lhvEoU6Enb+d83xnokUNhC9dktqBoawKWL+WuxinxvBLTz6q9vReTnUDnUslaz74aw==}
     engines: {node: '>=12'}
@@ -3403,6 +3409,21 @@ packages:
       optionator: 0.8.3
     optionalDependencies:
       source-map: 0.6.1
+    dev: true
+
+  /eslint-config-airbnb-base/15.0.0_dg2pe6kqkrddxbf2funb723kue:
+    resolution: {integrity: sha512-xaX3z4ZZIcFLvh2oUNvcX5oEofXda7giYmuplVxoOg5A7EXJMrUyqRgR+mhDhPK8LZ4PttFOBvCYDbX3sUoUig==}
+    engines: {node: ^10.12.0 || >=12.0.0}
+    peerDependencies:
+      eslint: ^7.32.0 || ^8.2.0
+      eslint-plugin-import: ^2.25.2
+    dependencies:
+      confusing-browser-globals: 1.0.11
+      eslint: 8.24.0
+      eslint-plugin-import: 2.26.0_gofx6msuqd4luqedfouzks2s4u
+      object.assign: 4.1.4
+      object.entries: 1.1.5
+      semver: 6.3.0
     dev: true
 
   /eslint-config-prettier/8.5.0_eslint@8.24.0:
@@ -5844,6 +5865,15 @@ packages:
       define-properties: 1.1.4
       has-symbols: 1.0.3
       object-keys: 1.1.1
+    dev: true
+
+  /object.entries/1.1.5:
+    resolution: {integrity: sha512-TyxmjUoZggd4OrrU1W66FMDG6CuqJxsFvymeyXI51+vQLN67zYfZseptRge703kKQdo4uccgAKebXFcRCzk4+g==}
+    engines: {node: '>= 0.4'}
+    dependencies:
+      call-bind: 1.0.2
+      define-properties: 1.1.4
+      es-abstract: 1.20.3
     dev: true
 
   /object.values/1.1.5:
