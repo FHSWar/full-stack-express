@@ -18,6 +18,8 @@ import {
 } from '~util'
 
 const launchApp = async (): Promise<void> => {
+	global.launchStart = performance.now()
+
 	useDotenv() // 读入环境变量
 	useWinston() // 全局挂载日志对象
 	useScheduler() // 全局挂载定时任务
@@ -38,7 +40,7 @@ const launchApp = async (): Promise<void> => {
 	await useSequelize() // mysql的ORM框架
 	await useController(app) // 动态注册controller
 
-	launchTimer.done({ level: 'debug', message: '项目启动耗时' })
+	logger.info(`项目启动：${Math.ceil(performance.now() - launchStart)}毫秒`)
 }
 
 const stopApp = async (): Promise<void> => {

@@ -5,7 +5,7 @@ import type { Express } from 'express'
 import type { Redis } from 'ioredis'
 import type { Job } from 'node-schedule'
 import type { Sequelize } from 'sequelize'
-import type { Logger, Profiler } from 'winston'
+import type { Logger } from 'winston'
 
 import type { ToClient } from '~util'
 
@@ -21,7 +21,7 @@ interface Scheduler {
 // 在这个文件里面引不存在的包居然不会报错
 declare global {
 	var app: Express
-	var launchTimer: Profiler
+	var launchStart: number
 	var logger: Logger
 	var rbac: Sequelize
 	var redis: Redis

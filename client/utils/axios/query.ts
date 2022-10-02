@@ -8,7 +8,7 @@ export const query = async <T>(
 ) => {
 	try {
 		const res = await axios(config)
-		return res as T
+		return res.data as T
 	} catch (error) {
 		if (handleError) throw error
 

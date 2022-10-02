@@ -13,7 +13,6 @@ const stopScheduler = (): void => {
 const updateLogger = (): Job => {
 	return scheduleJob('upateLogger', '0 0 * * *', () => {
 		useWinston()
-		launchTimer.done({ level: 'debug', message: '日志旋转啦' })
 		logger.debug(`rotate file daily, ${new Date().toLocaleString()}`)
 	})
 }
