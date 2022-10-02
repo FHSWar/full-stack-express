@@ -40,7 +40,7 @@ const launchApp = async (): Promise<void> => {
 	await useSequelize() // mysql的ORM框架
 	await useController(app) // 动态注册controller
 
-	logger.info(`项目启动：${Math.ceil(performance.now() - launchStart)}毫秒`)
+	logger.debug(`项目启动：${Math.ceil(performance.now() - launchStart)}毫秒`)
 }
 
 const stopApp = async (): Promise<void> => {

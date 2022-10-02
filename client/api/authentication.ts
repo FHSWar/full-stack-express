@@ -1,11 +1,9 @@
 import { post } from '~utils/axios'
 
-export const login = (params: null): Promise<string> =>
-	post('authentication/login', params)
+export const login = (): Promise<string> => post('authentication/login', null)
 
-export const logout = (params: null) => post('authentication/logout', params)
+export const logout = () => post('authentication/logout', null)
 
-export const register = (params: null) =>
-	post('authentication/register', params)
+export const register = () => post('authentication/register', null)
 
-export const test = (params: null) => post('nest/nest-two/sayHi', params)
+export const test = () => post('nest/nest-two/sayHi', null)

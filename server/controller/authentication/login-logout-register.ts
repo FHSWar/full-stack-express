@@ -16,7 +16,7 @@ subRouter.post('/login', async (req, res) => {
 	// TODO：用户登陆校验
 	const userSession = await redis.hget('loginUser', 'DUJINHUA506')
 	if (userSession !== undefined && userSession !== req.sessionID) {
-		logger.info('同一用户不同会话进行登陆操作s')
+		logger.info('同一用户不同会话进行登陆操作')
 	}
 
 	// 模拟登陆后设置cookie
