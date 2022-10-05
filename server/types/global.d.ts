@@ -21,7 +21,6 @@ interface Scheduler {
 // 在这个文件里面引不存在的包居然不会报错
 declare global {
 	var app: Express
-	var launchStart: number
 	var logger: Logger
 	var rbac: Sequelize
 	var redis: Redis

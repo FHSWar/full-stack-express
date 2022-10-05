@@ -18,7 +18,7 @@ import {
 } from '~util'
 
 const launchApp = async (): Promise<void> => {
-	global.launchStart = performance.now()
+	const launchStart = performance.now()
 
 	useDotenv() // 读入环境变量
 	useWinston() // 全局挂载日志对象
