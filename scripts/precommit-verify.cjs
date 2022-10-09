@@ -128,4 +128,16 @@ gitStatus.stdout.on('data', (paths) => {
 
 	done = true
 })
+gitStatus.stdout.on('end', () => {
+	if (done === false) {
+		console.log(GREEN, '非常规提交流程，跳过其余校验。')
+		done = true
+	}
+})
+gitStatus.stdout.on('error', (err) => {
+	if (done === false) {
+		console.log(RED, '❗️校验出错，退出。', err)
+		done = true
+	}
+})
 loopWhile(() => !done)
