@@ -1,8 +1,18 @@
 {
-    "editor.codeActionsOnSave": {
-        "source.fixAll": true
-    },
-    "eslint.validate": ["javascript", "typescript"],
-    "stylelint.validate": ["css", "postcss", "scss", "vue"],
-    "typescript.tsdk": "node_modules/typescript/lib"
+	"editor.codeActionsOnSave": {
+		"source.fixAll": true
+	},
+	"eslint.validate": ["javascript", "typescript"],
+	"stylelint.validate": ["css", "postcss", "scss", "vue"],
+	"typescript.tsdk": "node_modules/typescript/lib",
+	"editor.tokenColorCustomizations": {
+		"textMateRules": [
+			{
+				"scope": "meta.function-call",
+				"settings": {
+					"fontStyle": "bold"
+				}
+			}
+		]
+	}
 }
