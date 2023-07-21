@@ -16,6 +16,7 @@ const noNeedCheckDirArr = [
 	'public'
 ]
 const noNeedCheckFileArr = [
+	'.dockerignore',
 	'.editorconfig',
 	'.env.development',
 	'.env.local',
@@ -25,6 +26,7 @@ const noNeedCheckFileArr = [
 	'.gitignore',
 	'.prettierrc.yaml',
 	'.stylelintrc.yaml',
+	'Dockerfile',
 	'pm2.yaml',
 	'README.md'
 ]

@@ -1,7 +1,7 @@
 import connectRedis from 'connect-redis'
 import session from 'express-session'
 
-import { validateCookie } from '~util'
+// import { validateCookie } from '~util'
 
 import type { Client } from 'connect-redis'
 import type { Express } from 'express'
@@ -26,6 +26,6 @@ export const useSessionRedis = (app: Express): void => {
 				store: new RedisStore({ client: redis as unknown as Client })
 			})
 		)
-		// 要在注册session之后再用这个中间件
-		.use(validateCookie())
+	// 要在注册session之后再用这个中间件
+	// .use(validateCookie())
 }

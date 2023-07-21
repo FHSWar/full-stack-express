@@ -6,5 +6,12 @@
     "forceConsistentCasingInFileNames": true,
     "strict": true,
     "skipLibCheck": true
-  }
+  },
+	"ts-node": {
+		// 使.d.ts文件生效
+		// https://stackoverflow.com/questions/51610583/ts-node-ignores-d-ts-files-while-tsc-successfully-compiles-the-project
+		"files": true,
+		// 使诸如~controller之类的简写生效
+		"require": ["tsconfig-paths/register"]
+	}
 }

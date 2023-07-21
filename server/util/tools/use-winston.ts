@@ -40,7 +40,7 @@ export const useWinston = (): void => {
 	const date = dayjs().format('YYYY-MM-DD')
 	const logPath = join(LOG_PATH, date)
 
-	const logger = createLogger({
+	const rawLogger = createLogger({
 		// defaultMeta: { service: 'server' },
 		level: 'silly',
 		transports: [
@@ -53,6 +53,14 @@ export const useWinston = (): void => {
 			new transports.Console({ format: combine(colorize(), simple()) })
 		]
 	})
+
+	// 不这样做，部署到 docker 运行会报错
+	const logger = {
+		info: rawLogger.info.bind(rawLogger),
+		debug: rawLogger.info.bind(rawLogger),
+		warn: rawLogger.info.bind(rawLogger),
+		error: rawLogger.info.bind(rawLogger)
+	}
 
 	global.logger = logger
 }
