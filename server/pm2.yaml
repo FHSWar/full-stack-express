@@ -7,3 +7,4 @@ apps:
   node_args: "-r ts-node/register/transpile-only -r tsconfig-paths/register"
   env:
     NODE_ENV: production
+    PORT: 7878

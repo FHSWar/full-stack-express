@@ -1,0 +1,19 @@
+version: '3.7'
+services:
+  node_app:
+    build: .
+    ports:
+      - "7878:7878" # Replace "3000" with the port your Node.js app listens on
+    environment:
+      REDIS_HOST: redis_db_container # Use this as the Redis hostname in your Node.js app
+      REDIS_PORT: 6379 # Default Redis port, change if needed
+    depends_on:
+      - redis_db_container
+
+  redis_db_container:
+    image: redis:latest
+    ports:
+      - "6379:6379"
+
+volumes:
+  node_modules: # Optionally, you can use a named volume for caching node_modules for faster builds

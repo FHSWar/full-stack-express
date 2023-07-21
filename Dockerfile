@@ -9,8 +9,7 @@ ADD . /app/
 WORKDIR /app/server
 
 #设置镜像
-RUN npm cache clean --force
-RUN npm config set registry https://registry.npm.taobao.org/
+RUN npm config set registry https://registry.npmmirror.com/
 
 #安装依赖
 RUN npm install -g pnpm
