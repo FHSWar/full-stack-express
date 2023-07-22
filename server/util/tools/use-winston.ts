@@ -33,10 +33,7 @@ const fileConfigFactory = (
 })
 
 // debug以上的才写到日志中
-export const useWinston = (): void => {
-	const { LOG_PATH } = process.env
-	if (LOG_PATH === undefined) throw new Error('日志文件路径不能为空❗️')
-
+export const useWinston = (LOG_PATH: string): void => {
 	const date = dayjs().format('YYYY-MM-DD')
 	const logPath = join(LOG_PATH, date)
 

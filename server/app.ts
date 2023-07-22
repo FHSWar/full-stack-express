@@ -20,10 +20,11 @@ import {
 const launchApp = async (): Promise<void> => {
 	const launchStart = performance.now()
 
-	useDotenv() // 读入环境变量
-	useWinston() // 全局挂载日志对象
-	useScheduler() // 全局挂载定时任务
-	useRedis() // 全局挂载ioredis实例
+	const env = useDotenv() // 读入环境变量
+
+	useWinston(env.LOG_PATH) // 全局挂载日志对象
+	useScheduler(env.LOG_PATH) // 全局挂载定时任务
+	useRedis(env.REDIS_DB_HOST) // 全局挂载ioredis实例
 	useToClient() // 全局挂载响应方法，统一响应格式
 
 	const app = express()
@@ -32,9 +33,9 @@ const launchApp = async (): Promise<void> => {
 		.use(responseTime()) // 给响应头里写入响应时间
 		.use(express.json()) // 解析json格式的请求
 
-	useSessionRedis(app) // 使用cookie
-	useStaticServer(app) // 静态资源服务
-	useHttpServer(app) // 包一层http server，使可以停止，方便单测
+	useSessionRedis(app, env.SESSION_SECRET) // 使用cookie
+	useStaticServer(app, env.STATIC_PATH) // 静态资源服务
+	useHttpServer(app, env.PORT) // 包一层http server，使可以停止，方便单测
 	useSwaggerUI(app) // api文档
 
 	// await useSequelize() // mysql的ORM框架

@@ -7,12 +7,7 @@ import type { Client } from 'connect-redis'
 import type { Express } from 'express'
 
 // https://www.npmjs.com/package/redis
-export const useSessionRedis = (app: Express): void => {
-	const { SESSION_SECRET } = process.env
-	if (SESSION_SECRET === undefined) {
-		throw new Error('必须指定密钥串❗️')
-	}
-
+export const useSessionRedis = (app: Express, SESSION_SECRET: string): void => {
 	const RedisStore = connectRedis(session)
 
 	app

@@ -1,8 +1,8 @@
 import Redis from 'ioredis'
 
-export const useRedis = (): void => {
+export const useRedis = (REDIS_DB_HOST: string): void => {
 	global.redis = new Redis({
-		host: 'redis_db_container'
+		host: REDIS_DB_HOST
 	})
 
 	redis.on('error', logger.error)

@@ -10,20 +10,20 @@ const stopScheduler = (): void => {
 }
 
 // 每天零点更新日志输出的文件夹，这样方便灵活定制
-const updateLogger = (): Job => {
+const updateLogger = (LOG_PATH: string): Job => {
 	return scheduleJob('upateLogger', '0 0 * * *', () => {
-		useWinston()
+		useWinston(LOG_PATH)
 		logger.debug(`rotate file daily, ${new Date().toLocaleString()}`)
 	})
 }
 
-export const useScheduler = (): void => {
+export const useScheduler = (LOG_PATH: string): void => {
 	// 初始化全局scheduler对象
 	global.scheduler = {
 		schedules: {},
 		stopScheduler: () => {}
 	}
 
-	scheduler.schedules.upateLoggerJob = updateLogger()
+	scheduler.schedules.upateLoggerJob = updateLogger(LOG_PATH)
 	scheduler.stopScheduler = stopScheduler
 }
