@@ -19,7 +19,6 @@ import {
 
 const launchApp = async (): Promise<void> => {
 	const launchStart = performance.now()
-
 	const env = useDotenv() // 读入环境变量
 
 	useWinston(env.LOG_PATH) // 全局挂载日志对象
