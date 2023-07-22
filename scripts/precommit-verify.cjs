@@ -1,5 +1,4 @@
-const { exec } = require('child_process')
-const { loopWhile } = require('deasync')
+const { execSync } = require('child_process')
 const { readdirSync, statSync } = require('fs')
 
 const GREEN = '\x1b[32m%s\x1b[0m'
@@ -94,9 +93,9 @@ const getAllDirectories = (dir) => {
 getAllDirectories(rootDir)
 checkNameFormat(dirArr, '文件夹命名规范校验已完成。✨')
 
-let done = false
-const gitStatus = exec('git diff --name-only --staged')
-gitStatus.stdout.on('data', (paths) => {
+try {
+	const paths = execSync('git diff --name-only --staged').toString()
+
 	const pathArr = paths.split('\n') // 处于 staged 的文件列表拆为数组
 	checkNameFormat(
 		pathArr
@@ -127,19 +126,6 @@ gitStatus.stdout.on('data', (paths) => {
 	} else {
 		console.log(GREEN, '图片体积校验已完成。✨')
 	}
-
-	done = true
-})
-gitStatus.stdout.on('end', () => {
-	if (done === false) {
-		console.log(GREEN, '非常规提交流程，跳过其余校验。')
-		done = true
-	}
-})
-gitStatus.stdout.on('error', (err) => {
-	if (done === false) {
-		console.log(RED, '❗️校验出错，退出。', err)
-		done = true
-	}
-})
-loopWhile(() => !done)
+} catch (err) {
+	console.log(RED, '❗️校验出错，退出。', err)
+}

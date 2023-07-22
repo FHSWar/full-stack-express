@@ -24,7 +24,6 @@
     "license": "ISC",
     "devDependencies": {
         "@typescript-eslint/eslint-plugin": "^5.38.1",
-        "deasync": "^0.1.28",
         "eslint": "^8.24.0",
         "eslint-config-prettier": "^8.5.0",
         "eslint-config-standard-with-typescript": "^22.0.0",
