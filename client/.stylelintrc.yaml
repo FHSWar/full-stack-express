@@ -1,9 +1,10 @@
 extends:
     - stylelint-config-html
     - stylelint-config-recess-order
-    - stylelint-config-standard-scss
+    - stylelint-config-sass-guidelines
+    - stylelint-config-standard
     - stylelint-config-standard-vue
-    - stylelint-config-prettier
+    - stylelint-config-tailwindcss
 rules:
     at-rule-no-unknown:
     scss/at-rule-no-unknown:
@@ -12,13 +13,3 @@ rules:
             - tailwind
             - value
             - layer
-# 用了prettier之后，npx stylelint居然不能lint了，神奇
-ignoreFiles:
-    - dist/**/*.css
-    - dist/**/*.sass
-    - dist/**/*.scss
-    - dist/**/*.vue
-    - node_modules/**/*.css
-    - node_modules/**/*.sass
-    - node_modules/**/*.scss
-    - node_modules/**/*.vue

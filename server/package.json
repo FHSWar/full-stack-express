@@ -7,8 +7,6 @@
     "build": "npx tsc",
     "dev": "NODE_ENV=local tsx watch app.ts",
     "dev:nodemon": "NODE_ENV=local nodemon -q",
-    "prd": "tsc && NODE_ENV=production pm2 start pm2.yaml",
-    "start": "node -v",
     "test": "NODE_ENV=testing jest --runInBand --detectOpenHandles"
   },
   "keywords": [
@@ -56,6 +54,7 @@
     "jest": "^29.6.1",
     "nodemon": "^3.0.1",
     "pm2": "^5.3.0",
+    "prisma": "^5.0.0",
     "supertest": "^6.3.3",
     "swagger-jsdoc": "^6.2.8",
     "swagger-ui-express": "^5.0.0",

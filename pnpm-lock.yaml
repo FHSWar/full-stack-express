@@ -126,18 +126,21 @@ importers:
       stylelint-config-html:
         specifier: ^1.1.0
         version: 1.1.0(postcss-html@1.5.0)(stylelint@15.10.2)
-      stylelint-config-prettier:
-        specifier: ^9.0.5
-        version: 9.0.5(stylelint@15.10.2)
       stylelint-config-recess-order:
         specifier: ^4.3.0
         version: 4.3.0(stylelint@15.10.2)
-      stylelint-config-standard-scss:
-        specifier: ^5.0.0
-        version: 5.0.0(postcss@8.4.26)(stylelint@15.10.2)
+      stylelint-config-sass-guidelines:
+        specifier: ^10.0.0
+        version: 10.0.0(postcss@8.4.26)(stylelint@15.10.2)
+      stylelint-config-standard:
+        specifier: ^34.0.0
+        version: 34.0.0(stylelint@15.10.2)
       stylelint-config-standard-vue:
         specifier: ^1.0.0
         version: 1.0.0(postcss-html@1.5.0)(stylelint@15.10.2)
+      stylelint-config-tailwindcss:
+        specifier: ^0.0.7
+        version: 0.0.7(stylelint@15.10.2)(tailwindcss@3.3.3)
       tailwindcss:
         specifier: ^3.3.3
         version: 3.3.3(ts-node@10.9.1)
@@ -265,6 +268,9 @@ importers:
       pm2:
         specifier: ^5.3.0
         version: 5.3.0
+      prisma:
+        specifier: ^5.0.0
+        version: 5.0.0
       supertest:
         specifier: ^6.3.3
         version: 6.3.3
@@ -2533,6 +2539,11 @@ packages:
       debug: 4.3.4
     transitivePeerDependencies:
       - supports-color
+    dev: true
+
+  /@prisma/engines@5.0.0:
+    resolution: {integrity: sha512-kyT/8fd0OpWmhAU5YnY7eP31brW1q1YrTGoblWrhQJDiN/1K+Z8S1kylcmtjqx5wsUGcP1HBWutayA/jtyt+sg==}
+    requiresBuild: true
     dev: true
 
   /@sideway/address@4.1.4:
@@ -7947,6 +7958,15 @@ packages:
       react-is: 18.2.0
     dev: true
 
+  /prisma@5.0.0:
+    resolution: {integrity: sha512-KYWk83Fhi1FH59jSpavAYTt2eoMVW9YKgu8ci0kuUnt6Dup5Qy47pcB4/TLmiPAbhGrxxSz7gsSnJcCmkyPANA==}
+    engines: {node: '>=16.13'}
+    hasBin: true
+    requiresBuild: true
+    dependencies:
+      '@prisma/engines': 5.0.0
+    dev: true
+
   /promptly@2.2.0:
     resolution: {integrity: sha512-aC9j+BZsRSSzEsXBNBwDnAxujdx19HycZoKgRgzWnS8eOHg1asuf9heuLprfbe739zY3IdUQx+Egv6Jn135WHA==}
     dependencies:
@@ -8888,16 +8908,6 @@ packages:
       stylelint: 15.10.2
     dev: true
 
-  /stylelint-config-prettier@9.0.5(stylelint@15.10.2):
-    resolution: {integrity: sha512-U44lELgLZhbAD/xy/vncZ2Pq8sh2TnpiPvo38Ifg9+zeioR+LAkHu0i6YORIOxFafZoVg0xqQwex6e6F25S5XA==}
-    engines: {node: '>= 12'}
-    hasBin: true
-    peerDependencies:
-      stylelint: '>= 11.x < 15'
-    dependencies:
-      stylelint: 15.10.2
-    dev: true
-
   /stylelint-config-recess-order@4.3.0(stylelint@15.10.2):
     resolution: {integrity: sha512-EWVtxZ8oq4/meTrRNUDrS5TqMz6TX72JjKDwVQq0JJDXE+P/o7UuFw3wWV/0O9yvJfh/da6nJY71ZUn/wSfB4g==}
     peerDependencies:
@@ -8905,19 +8915,6 @@ packages:
     dependencies:
       stylelint: 15.10.2
       stylelint-order: 6.0.3(stylelint@15.10.2)
-    dev: true
-
-  /stylelint-config-recommended-scss@7.0.0(postcss@8.4.26)(stylelint@15.10.2):
-    resolution: {integrity: sha512-rGz1J4rMAyJkvoJW4hZasuQBB7y9KIrShb20l9DVEKKZSEi1HAy0vuNlR8HyCKy/jveb/BdaQFcoiYnmx4HoiA==}
-    peerDependencies:
-      stylelint: ^14.4.0
-    dependencies:
-      postcss-scss: 4.0.6(postcss@8.4.26)
-      stylelint: 15.10.2
-      stylelint-config-recommended: 8.0.0(stylelint@15.10.2)
-      stylelint-scss: 4.7.0(stylelint@15.10.2)
-    transitivePeerDependencies:
-      - postcss
     dev: true
 
   /stylelint-config-recommended-vue@1.5.0(postcss-html@1.5.0)(stylelint@15.10.2):
@@ -8943,24 +8940,17 @@ packages:
       stylelint: 15.10.2
     dev: true
 
-  /stylelint-config-recommended@8.0.0(stylelint@15.10.2):
-    resolution: {integrity: sha512-IK6dWvE000+xBv9jbnHOnBq01gt6HGVB2ZTsot+QsMpe82doDQ9hvplxfv4YnpEuUwVGGd9y6nbaAnhrjcxhZQ==}
+  /stylelint-config-sass-guidelines@10.0.0(postcss@8.4.26)(stylelint@15.10.2):
+    resolution: {integrity: sha512-+Rr2Dd4b72CWA4qoj1Kk+y449nP/WJsrD0nzQAWkmPPIuyVcy2GMIcfNr0Z8JJOLjRvtlkKxa49FCNXMePBikQ==}
+    engines: {node: ^14.13.1 || >=16.13.0 || >=18.0.0}
     peerDependencies:
-      stylelint: ^14.8.0
+      postcss: ^8.4.21
+      stylelint: ^15.2.0
     dependencies:
+      postcss: 8.4.26
+      postcss-scss: 4.0.6(postcss@8.4.26)
       stylelint: 15.10.2
-    dev: true
-
-  /stylelint-config-standard-scss@5.0.0(postcss@8.4.26)(stylelint@15.10.2):
-    resolution: {integrity: sha512-zoXLibojHZYPFjtkc4STZtAJ2yGTq3Bb4MYO0oiyO6f/vNxDKRcSDZYoqN260Gv2eD5niQIr1/kr5SXlFj9kcQ==}
-    peerDependencies:
-      stylelint: ^14.9.0
-    dependencies:
-      stylelint: 15.10.2
-      stylelint-config-recommended-scss: 7.0.0(postcss@8.4.26)(stylelint@15.10.2)
-      stylelint-config-standard: 26.0.0(stylelint@15.10.2)
-    transitivePeerDependencies:
-      - postcss
+      stylelint-scss: 4.7.0(stylelint@15.10.2)
     dev: true
 
   /stylelint-config-standard-vue@1.0.0(postcss-html@1.5.0)(stylelint@15.10.2):
@@ -8977,15 +8967,6 @@ packages:
       stylelint-config-standard: 34.0.0(stylelint@15.10.2)
     dev: true
 
-  /stylelint-config-standard@26.0.0(stylelint@15.10.2):
-    resolution: {integrity: sha512-hUuB7LaaqM8abvkOO84wh5oYSkpXgTzHu2Zza6e7mY+aOmpNTjoFBRxSLlzY0uAOMWEFx0OMKzr+reG1BUtcqQ==}
-    peerDependencies:
-      stylelint: ^14.9.0
-    dependencies:
-      stylelint: 15.10.2
-      stylelint-config-recommended: 8.0.0(stylelint@15.10.2)
-    dev: true
-
   /stylelint-config-standard@34.0.0(stylelint@15.10.2):
     resolution: {integrity: sha512-u0VSZnVyW9VSryBG2LSO+OQTjN7zF9XJaAJRX/4EwkmU0R2jYwmBSN10acqZisDitS0CLiEiGjX7+Hrq8TAhfQ==}
     engines: {node: ^14.13.1 || >=16.0.0}
@@ -8994,6 +8975,16 @@ packages:
     dependencies:
       stylelint: 15.10.2
       stylelint-config-recommended: 13.0.0(stylelint@15.10.2)
+    dev: true
+
+  /stylelint-config-tailwindcss@0.0.7(stylelint@15.10.2)(tailwindcss@3.3.3):
+    resolution: {integrity: sha512-n2dCWH+0ppr0/by4EYCLWW7g5LU+l4UzUIsYS7xbVHqvm9UWa7UhltNdNiz5NmLF/FmbJR4Yd/v9DuUGvLw1Tg==}
+    peerDependencies:
+      stylelint: '>=13.13.1'
+      tailwindcss: '>=2.2.16'
+    dependencies:
+      stylelint: 15.10.2
+      tailwindcss: 3.3.3(ts-node@10.9.1)
     dev: true
 
   /stylelint-order@6.0.3(stylelint@15.10.2):
