@@ -5,7 +5,7 @@
   "main": "app.ts",
   "scripts": {
     "build": "npx tsc",
-    "dev": "NODE_ENV=local tsx watch app.ts",
+    "dev": "NODE_ENV=local tsx watch --clear-screen=false app.ts",
     "dev:nodemon": "NODE_ENV=local nodemon -q",
     "test": "NODE_ENV=testing jest --runInBand --detectOpenHandles"
   },

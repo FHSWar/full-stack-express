@@ -1,5 +1,9 @@
 # package.json说明
 
+## debug
+
+- 按键：f5
+
 ## dependencied
 
 - dayjs 日期库
