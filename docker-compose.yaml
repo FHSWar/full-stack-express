@@ -1,6 +1,8 @@
 version: '3.7'
 services:
   node_app:
+    # 目标环境是x86
+    platform: linux/amd64
     build: .
     ports:
       - "7878:7878" # Replace "3000" with the port your Node.js app listens on
