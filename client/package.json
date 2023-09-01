@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "build": "vue-tsc --noEmit && vite build",
+    "build:dev": "vue-tsc --noEmit && vite build --mode development",
     "dev": "vite --mode development",
     "lint": "eslint --fix --ext .cjs,.js,.ts,.tsx,.vue .",
     "preview": "vite preview"
@@ -21,11 +22,14 @@
     "vue3"
   ],
   "dependencies": {
+    "@vue/compiler-core": "^3.3.4",
     "axios": "^0.27.2",
+    "dompurify": "^3.0.5",
     "element-plus": "^2.3.8",
     "vue": "^3.3.4"
   },
   "devDependencies": {
+    "@types/dompurify": "^3.0.2",
     "@typescript-eslint/eslint-plugin": "^6.1.0",
     "@typescript-eslint/parser": "^6.1.0",
     "@vitejs/plugin-legacy": "^4.1.1",

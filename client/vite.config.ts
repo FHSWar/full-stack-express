@@ -1,11 +1,15 @@
 import { resolve } from 'path'
 
-import { defineConfig } from 'vite'
 import legacy from '@vitejs/plugin-legacy'
 import vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx'
+import { defineConfig } from 'vite'
+
+// @ts-ignore
+import { sanitizeVHtml } from './utils/custom-transform'
 
 export default defineConfig({
+	base: './',
 	resolve: {
 		alias: {
 			/* https://antfu.me/posts/isomorphic-dirname
@@ -29,8 +33,15 @@ export default defineConfig({
 			additionalLegacyPolyfills: ['regenerator-runtime/runtime']
 		}),
 		// 支持sfc
-		vue(),
+		vue({
+			template: {
+				compilerOptions: {
+					// 自定义转换函数
+					nodeTransforms: [sanitizeVHtml]
+				}
+			}
+		}),
 		// 支持jsx
 		vueJsx()
-	]
+	],
 })

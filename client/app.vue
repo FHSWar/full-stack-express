@@ -1,10 +1,12 @@
 <script setup lang="ts">
+import { ref } from 'vue'
 import {
 	login as loginApi,
 	logout as logoutApi,
 	register as registerApi,
 	test as testApi
 } from '~api/authentication'
+import { evilStr } from '~utils/evil-str'
 
 const login = async () => {
 	const a = await loginApi()
@@ -19,6 +21,8 @@ const register = async () => {
 const test = async () => {
 	await testApi()
 }
+
+const htmlStr = ref(evilStr)
 </script>
 
 <template>
@@ -28,5 +32,6 @@ const test = async () => {
 		<el-button type="primary" @click="login">登陆</el-button>
 		<el-button type="info" @click="logout">退出</el-button>
 		<el-button @click="test">测嵌套</el-button>
+		<div v-html="htmlStr"></div>
 	</div>
 </template>
